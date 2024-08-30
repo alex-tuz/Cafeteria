@@ -238,3 +238,8 @@ body {
     width: 210px !important;
     margin: 0 auto;
 }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}

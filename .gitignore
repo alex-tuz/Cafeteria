@@ -19,6 +19,7 @@ bld/
 build/
 
 env.json
+/Cafeteria.Web/wwwroot/images/product/**
 
 # Roslyn cache directories
 *.ide/

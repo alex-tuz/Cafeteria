@@ -1,8 +1,49 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model Cafeteria.Web.Models.ViewModels.HomeVM
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="text-center">
+        <button class="btn btn-dark filter-button" data-filter="all">
+            All
+        </button>
+        @foreach (var obj in Model.Categories)
+        {
+            @if (obj.Name != null)
+            {
+                <button class="btn btn-outline-secondary filter-button" data-filter="@obj.Name.Replace(' ', '_')">@obj.Name</button>
+            }
+        }
+        <div class="row d-flex flex-wrap mt-3">
+            @foreach (var prod in Model.Dishes)
+            {
+                // display all products
+                <partial name="_IndividualProductCart" model="prod" />
+            }
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $(".filter-button").click(function () {
+
+                console.log('click');
+
+                var value = $(this).attr('data-filter');
+
+                console.log(value);
+                if (value == "all") {
+                    $('.filter').show('1000');
+                }
+                else {
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+                    console.log($('.filter').filter('.' + value).get());
+
+                }
+            });
+
+        });
+    </script>
+}

@@ -21,6 +21,14 @@ namespace Cafeteria.Web
             configuration.AddJsonFile("env.example.json", true);
             configuration.AddJsonFile("env.json");
 
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddSession(Options =>
+            {
+                Options.IdleTimeout = TimeSpan.FromMinutes(10);
+                Options.Cookie.HttpOnly = true;
+                Options.Cookie.IsEssential = true;
+            });
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -40,6 +48,7 @@ namespace Cafeteria.Web
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
