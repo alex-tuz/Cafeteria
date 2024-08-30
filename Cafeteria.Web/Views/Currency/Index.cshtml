@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Cafeteria.Web.Models.Currency>
+
+@{
+    ViewData["Title"] = "Currency";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Currency List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Currency" asp-action="Create">
+                <i class="fa-solid fa-plus"></i>&nbsp Create new Currency
+            </a>
+        </div>
+
+        <br />
+
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Currency Name</th>
+                        <th>Currency Code</th>
+                        <th>Currency Symbol</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model)
+                    {
+                        <tr>
+                            <td width="40%">@obj.Name</td>
+                            <td width="20%">@obj.Code</td>
+                            <td width="20%">@obj.Symbol</td>
+                            <td class="text-center">
+                                <div class="w-75 btn-group" role="group">
+                                    <a class="btn btn-primary mx-2" asp-controller="Currency" asp-route-id="@obj.Id" asp-action="Edit">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                    <a class="btn btn-danger mx-2" asp-controller="Currency" asp-route-id="@obj.Id" asp-action="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p> No currency exists.</p>
+        }
+
+    </div>
+</div>
+
+

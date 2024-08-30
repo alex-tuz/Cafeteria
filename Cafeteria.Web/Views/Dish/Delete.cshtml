@@ -1,0 +1,45 @@
+﻿@model Cafeteria.Web.Models.Dish
+@{
+    var title = "Delete Dish";
+}
+
+<form method="post" asp-action="DeletePost" enctype="multipart/form-data">
+    @if (Model.Id != 0)
+    {
+        <input asp-for="Id" hidden />
+    }
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">@title</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" asp-for="Name" disabled />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-4 offset-4 row">
+                        <div class="col">
+                            <div class="col">
+                                <input type="submit" class="btn btn-danger w-100" value="Delete" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-success w-100" asp-action="Index">
+                                <i class="fa-solid fa-right-from-bracket"></i>Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

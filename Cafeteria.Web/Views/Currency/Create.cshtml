@@ -1,0 +1,68 @@
+﻿@model Cafeteria.Web.Models.Currency
+
+@{
+    ViewData["Title"] = "Currency";
+}
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Currency</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="Code"></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" asp-for="Code" />
+                        <span class="text-danger" asp-validation-for="Code"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" asp-for="Name" />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="Symbol"></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" asp-for="Symbol" />
+                        <span class="text-danger" asp-validation-for="Symbol"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-4 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-success w-100" asp-action="Index">
+                                <i class="fa-solid fa-right-from-bracket"></i>Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
