@@ -2,6 +2,7 @@
 using Cafeteria.Web.Data;
 using Cafeteria.Web.Models;
 using Cafeteria.Web.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Options;
 
 namespace Cafeteria.Web.Controllers
 {
+    [Authorize(Roles = WC.AdminRole)]
     public class DishController : Controller
     {
         private readonly ApplicationDbContext _db;

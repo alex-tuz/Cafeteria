@@ -17,7 +17,7 @@
                         <h1 class="text-white">@Model.Dish.Name</h1>
                     </div>
                     <div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-warning text-end"> @((Model.Dish.Price)) / @(Model?.Dish?.Currency?.Symbol)</h1>
+                        <h1 class="text-warning text-end">@(Model?.Dish?.Currency?.Symbol) @((Model?.Dish?.Price))</h1>
                     </div>
                 </div>
                 <div class="card-body">
